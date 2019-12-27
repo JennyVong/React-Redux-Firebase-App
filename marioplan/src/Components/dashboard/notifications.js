@@ -8,4 +8,4 @@ const Notifications = () => {
     )
 }
 
-export defualt Notifications;
+export default Notifications;
