@@ -5,6 +5,7 @@ import Dashboard from './Components/dashboard/Dashboard'
 import ProjectDetails from './Components/projects/ProjectDetails'
 import signin from './Components/Auth/signin'
 import signup from './Components/Auth/signup'
+import CreateProject from './Components/projects/CreateProjects'
 
 class App extends Component {
   render () {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path = '/projects/:id' component = {ProjectDetails} />
             <Route path = '/signin' component = {signin} />
             <Route path = '/signup' component = {signup} />
+            <Route path = '/createproject' component = {CreateProject} />
           </Switch>
         </div>
       </BrowserRouter>
