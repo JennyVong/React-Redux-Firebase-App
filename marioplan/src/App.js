@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './Components/layout/Navbar'
 import Dashboard from './Components/dashboard/Dashboard'
 import ProjectDetails from './Components/projects/ProjectDetails'
+import signin from './Components/Auth/signin'
+import signup from './Components/Auth/signup'
 
 class App extends Component {
   render () {
@@ -13,6 +15,8 @@ class App extends Component {
           <Switch>
             <Route exact path = '/' component = {Dashboard} />
             <Route path = '/projects/:id' component = {ProjectDetails} />
+            <Route path = '/signin' component = {signin} />
+            <Route path = '/signup' component = {signup} />
           </Switch>
         </div>
       </BrowserRouter>
