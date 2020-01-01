@@ -1,4 +1,4 @@
-export const signIn = (credentials) => {
+const signIn = (credentials) => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase ();
 
@@ -15,3 +15,4 @@ export const signIn = (credentials) => {
 }
 
 export default signIn
+
