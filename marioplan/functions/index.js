@@ -13,7 +13,7 @@ const createNotification = (notification => {
 });
 
 exports.projectsCreated = functions.firestore
-    .document('project/{authorId}')
+    .document('project/{projectId}')
     .onCreate((snap, context) => {
     const project = snap.data();
     const notification = {
@@ -26,3 +26,18 @@ exports.projectsCreated = functions.firestore
     return createNotification(notification);
 
 })
+
+exports.userJoined = functions.auth.user()
+    .onCreate((user, context) => {
+
+        return admin.firestore().collection('users')
+        .doc(user.uid).get().then(doc => {
+            const newUser = doc.data();
+            const notification= {
+                content: 'Joined the Party',
+                user: `${newUser.FirstName} ${newUser.LastName}`,
+                time: admin.firestore.FieldValue.serverTimestamp()
+            }
+            return createNotification(notification)
+    })
+    })
